@@ -1,0 +1,8 @@
+Dilian,21,videojuegos
+Joel,20,leer
+Pancho,20,dibujar
+dilian,12,nada
+sanson,14,nadar
+maria,11,jugar
+victor,25,leer
+jose,21,brincar
