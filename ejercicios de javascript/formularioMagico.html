@@ -1,0 +1,58 @@
+<html>
+<head>
+
+<script>
+
+window.onload = function () {
+
+	document.getElementById("agregar").onclick = function () {
+		cadena = document.getElementById("contenedor").innerHTML;
+		cadena += "<p>Cadena: <input type=\"text\" name=\"cadena\"></p>";
+		document.getElementById("contenedor").innerHTML = cadena;
+
+		console.log (document.getElementsByTagName("input"))
+		
+		objetos = document.getElementsByTagName("input");
+		dimension = objetos.length;
+
+		for (i = 0; i < dimension; i++ ) {
+			if (objetos[i].name == "cadena") {
+				objetos[i].onkeydown = function () {
+					this.value = this.value.toUpperCase();
+				}
+			}
+		}
+	}
+	
+	document.getElementById("formulario").onsubmit = function (event) {
+	
+		objetos = document.getElementsByTagName("input");
+		dimension = objetos.length;
+
+		for (i = 0; i < dimension; i++ ) {
+			if ((objetos[i].name == "cadena") && (objetos[i].value == "")) {
+				alert("Debes escribir una cadena");
+				objetos[i].focus()
+				break;
+			}
+		}
+		
+		if (i < dimension )
+			event.preventDefault()
+		else
+			alert("Enviando datos");
+	}
+}
+
+</script>
+
+</head>
+<body>
+	<form id="formulario" action="procesar.php">
+		<div id="contenedor">
+		<p>Cadena: <input type="text" name="cadena"></p>
+		</div>
+		<p><input type="button" name="agregar" value="Agregar" id="agregar"> <input type="submit" name="boton" value="Enviar"></p>
+	</form>
+</body>
+</html>
